@@ -127,3 +127,25 @@ rating *= 2
 //var meaningOfLife1 = 42
 //meaningOfLife1 = "Forty two"
 
+let fileName1 = "paris.jpg"
+print(fileName1.hasSuffix(".jpg"))
+
+let number2 = 120
+print(number2.isMultiple(of: 3))
+
+
+let goodDogs = true
+let gameOver = false
+
+let isMultiple = 120.isMultiple(of: 3)
+
+//Boolen ların "değil" anlamına gelen özel operatörü vardır(!). Boolean değerini doğrudan yanlışa veya yanlıştan doğruya çevirir.
+var isAuthenticated = false
+isAuthenticated = !isAuthenticated
+isAuthenticated = !isAuthenticated
+
+
+//özellikle bir boolean çağırırsak  toggle() doğru değeri yanlışa, yanlış değeri doğruya çevirir.
+var gameOver1 = false
+gameOver1.toggle()
+gameOver1.toggle()

@@ -226,3 +226,24 @@ case 2:
 default:
     print("A partridge in a pear tree")
 }
+
+//How to use the ternary conditional operator for quick tests
+
+let age3 = 18
+
+let canvote = age3 >= 18 ? "Yes" : "No"
+
+let hour = 23
+print(hour < 12 ? "It's before noon" : "It's after noon")
+
+let names = ["Jane", "Kaylee", "Mal"]
+let crewCount = names.isEmpty ? "No one" : "\(names.count) people"
+
+enum Theme {
+    case light, dark
+}
+
+let theme = Theme.dark
+let backgroud = theme == .dark ? "black" : "white"
+print(backgroud)
+

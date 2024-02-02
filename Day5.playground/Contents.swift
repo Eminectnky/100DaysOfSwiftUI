@@ -100,3 +100,92 @@ enum Sizes: Comparable {
 let first = Sizes.small
 let second = Sizes.large
 print(first < second)
+
+
+//How to check multiple conditions
+
+let age1 = 16
+if age1 >= 18 {
+    print("You can vote in the next election.")
+}
+
+if age1 < 18 {
+    print("Sorry, you're too young to vote.")
+}
+
+let age2 = 16
+if age2 >= 18 {
+    print("You can vote in the next election.")
+}else{
+    print("Sorry, you're too young to vote.")
+}
+
+let temp = 25
+
+//if temp > 20 {
+//    if temp < 30 {
+//        print("It's a nice day.")
+//    }
+//}
+
+if temp > 20 && temp < 30 {
+    print("It's a nice day.")
+}
+
+let userAge = 14
+let hasParentalConsent = true
+
+if age >= 18 || hasParentalConsent == true {
+    print("You can buy the game!")
+}
+
+enum TransportOption {
+    case airplane, helicopter, bicycle, car, escooter
+}
+
+let transport = TransportOption.escooter
+
+if transport == .airplane || transport == .helicopter {
+    print("Let's fly!")
+}else if transport == .bicycle {
+    print("I hope there's a bike path..")
+}else if transport == .car {
+    print("Time to get stuck in traffic.")
+}else {
+    print("I'm going to hire a scooter now!")
+}
+
+
+let score1 = 9001
+
+//if score1 > 9000 {
+//    print("It's over 9000!")
+//}
+//
+//if score1 <= 9000{
+//    print("It's not over 9000!")
+//}
+
+//if score1 > 9000{
+//    print("It's over 9000!")
+//} else {
+//    print("It's not over 9000!")
+//}
+
+//if score1 > 9000 {
+//    print("It's over 9000!")
+//}else {
+//    if score == 9000 {
+//        print("It's exactly 9000!")
+//    }else {
+//        print("It's not over 9000!")
+//    }
+//}
+
+if score > 9000 {
+    print("It's over 9000!")
+}else if score == 9000 {
+    print("It's exactly 9000!")
+}else {
+    print("It's not over 9000!")
+}

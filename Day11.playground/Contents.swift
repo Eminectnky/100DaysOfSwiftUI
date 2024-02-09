@@ -62,3 +62,60 @@ struct Employee {
 
     static let example = Employee(username: "cfederighi", password: "hairforceone")
 }
+
+
+//static belirleyicisi, bir türe ait olan özellikleri ve metodları tanımlamak ve bu özelliklere ve metodlara tür adı kullanılarak doğrudan erişim sağlamak için kullanılır.
+
+
+
+//checkpoint6
+
+class Araba {
+    private var model: String
+    private var koltukSayisi: Int
+    private var vites: Int
+    
+    init(model: String, koltukSayisi: Int, vites: Int) {
+        self.model = model
+        self.koltukSayisi = koltukSayisi
+        if vites >= 0 && vites <= 10 {
+            self.vites = vites
+        } else {
+            self.vites = 0 //vites varsayılan olarak sıfır
+        }
+    }
+    
+    func vitesYukariDegistir(){
+        if vites < 10 {
+            vites += 1
+        }
+    }
+    
+    
+    func vitesAsagiDegistir() {
+        if vites > 0 {
+            vites -= 1
+        }
+    }
+    
+    
+    func vitesGoster() -> Int {
+        return vites
+    }
+}
+
+
+//araba örneği
+var araba = Araba(model: "BMW", koltukSayisi: 5, vites: 0)
+
+//vites yukarı
+araba.vitesYukariDegistir()
+print("Yeni vites: \(araba.vitesGoster())") //çıktı: Yeni vites: 1
+
+//vites tekrar yukarı
+araba.vitesYukariDegistir()
+print("Yeni vites: \(araba.vitesGoster())") //çıktı: Yeni vites: 2
+
+//vites aşağı
+araba.vitesAsagiDegistir()
+print("Yeni vites: \(araba.vitesGoster())") //çıktı: Yeni vites: 1

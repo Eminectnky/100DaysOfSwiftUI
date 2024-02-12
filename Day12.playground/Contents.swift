@@ -68,5 +68,66 @@ class Car: Vehicle {
     let isConvertible = false
 }
 
-
 let teslaX = Car(isElectric: true)
+
+
+//How to copy classes
+
+class User{
+    var username = "Anonymous"
+    
+    func copy() -> User {
+        let user = User()
+        user.username = username
+        return user
+    }
+}
+
+var user1 = User()
+var user2 = user1.copy()
+user2.username = "Taylor"
+
+print(user1.username)
+print(user2.username)
+
+
+
+//How to create a deinitializer for a class
+
+class User1 {
+    let id: Int
+    
+    init(id: Int) {
+        self.id = id
+        print("User \(id): I'm alive!")
+    }
+    
+    deinit{
+        print("User \(id): I'm dead!")
+    }
+}
+
+var users = [User1]()
+
+for i in 1...3 {
+    let user = User1(id: i)
+    print("User \(user.id): I'm in control!")
+    users.append(user)
+}
+
+print("Loop is finished!")
+users.removeAll()
+print("Array is clear")
+
+
+
+//How to work with variables inside classes
+
+class User2 {
+    var name = "Paul"
+}
+
+var user = User2()
+user.name = "Taylor"
+user = User2()
+print(user.name)

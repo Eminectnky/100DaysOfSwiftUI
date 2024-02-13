@@ -131,3 +131,87 @@ var user = User2()
 user.name = "Taylor"
 user = User2()
 print(user.name)
+
+
+
+//checkpoint 7
+
+
+class Animal {
+    
+    var legs: Int
+    
+    init(legs: Int) {
+        self.legs = legs
+    }
+}
+
+
+class Dog: Animal {
+    
+    override init(legs: Int) {
+        super.init(legs: legs)
+    }
+    
+    func speak(){
+        print("Woof!")
+    }
+}
+
+class Cat: Animal {
+    var isTame: Bool
+    
+    init(legs: Int, isTame: Bool) {
+        self.isTame = isTame
+        super.init(legs: legs)
+    }
+    
+    func speak() {
+        print("Meow!")
+    }
+}
+
+
+class Corgi: Dog {
+    override func speak() {
+        print("Bark! I am a Corgi.")
+    }
+    
+}
+
+
+
+class Poodle: Dog {
+    override func speak() {
+        print("Bark! I am a Poodle.")
+    }
+}
+
+
+class Persian: Cat {
+    override func speak() {
+        print("Purr! I am a Persian cat.")
+    }
+}
+
+
+class Lion: Cat{
+    override func speak() {
+        print("Roar! I am a Lion.")
+    }
+}
+
+let animal = Animal(legs: 4)
+let dog = Dog(legs: 4)
+let cat = Cat(legs: 4, isTame: true)
+let corgi = Corgi(legs: 4)
+let poodle = Poodle(legs: 4)
+let persian = Persian(legs: 4, isTame: false)
+let lion = Lion(legs: 4, isTame: false)
+
+dog.speak()
+cat.speak()
+corgi.speak()
+poodle.speak()
+persian.speak()
+lion.speak()

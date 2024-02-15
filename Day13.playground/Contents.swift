@@ -164,3 +164,70 @@ struct Employee: Person {
 
 let taylor = Employee(name: "Taylor Swift")
 taylor.sayHello()
+
+
+//How to get the most from protocol extensions
+
+extension Numeric {
+    func squared() -> Self {
+        self * self
+    }
+}
+
+let wholeNumber = 5
+print(wholeNumber.squared())
+
+struct User: Comparable {
+    let name: String
+    
+   static func <(lhs: User, rhs: User) -> Bool {
+        lhs.name < rhs.name
+    }
+    
+}
+
+let user1 = User(name: "Link")
+let user2 = User(name: "Zelda")
+print(user1 == user2)
+print(user1 != user2)
+print(user1 < user2)
+print(user1 <= user2)
+print(user1 > user2)
+print(user1 >= user2)
+
+
+//checkpoint8
+
+protocol Building {
+    var numberOfRooms: Int { get }
+    var cost: Int { get }
+    var realtorName: String { get }
+    
+    func salesSummary()
+}
+
+struct House: Building {
+    let numberOfRooms: Int
+    let cost: Int
+    let realtorName: String
+    
+    func salesSummary() {
+        print("Bu ev \(numberOfRooms) odalıdır ve maliyeti \(cost) dolardır.")
+    }
+}
+
+struct Office: Building {
+    let numberOfRooms: Int
+    let cost: Int
+    let realtorName: String
+    
+    func salesSummary() {
+        print("Bu ofis \(numberOfRooms) odalıdır ve maliyeti \(cost) dolardır. Satışı \(realtorName) tarafından gerçekleştirilmektedir.")
+    }
+}
+
+let house = House(numberOfRooms: 4, cost: 500000, realtorName: "John Doe")
+house.salesSummary()
+
+let office = Office(numberOfRooms: 10, cost: 1000000, realtorName: "Jane Smith")
+office.salesSummary()

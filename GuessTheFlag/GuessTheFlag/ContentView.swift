@@ -10,10 +10,44 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        Text("Your content")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .foregroundStyle(.white)
-            .background(.indigo.gradient)
+        Button{
+            print("Button was tapped")
+        } label: {
+            Label("Edit", systemImage: "pencil")
+                .padding()
+                .foregroundStyle(.white)
+                .background(.red)
+        }
+//        Image(systemName: "pencil.circle")
+//            .foregroundStyle(.red)
+//            .font(.largeTitle)
+        
+//        Button{
+//            print("Button was tapped")
+//        } label: {
+//            Text("Tap me!")
+//                .padding()
+//                .foregroundStyle(.white)
+//                .background(.red)
+//    }
+//        VStack{
+//            Button("Button 1") { }
+//                .buttonStyle(.bordered)
+//            Button("Button 2", role: .destructive) { }
+//                .buttonStyle(.bordered)
+//            Button("Button 3") { }
+//                .buttonStyle(.borderedProminent)
+//                .tint(.indigo)
+//            Button("Button 4", role: .destructive) { }
+//                .buttonStyle(.borderedProminent)
+//        }
+//        Button("Delete selection", role: .destructive, action: executeDelete)
+        
+        
+//        Text("Your content")
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .foregroundStyle(.white)
+//            .background(.indigo.gradient)
 //
 //        AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
 //
@@ -26,7 +60,7 @@ struct ContentView: View {
 //        ], startPoint: .top, endPoint: .bottom)
 //   
         
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
     
 //        ZStack{
 //            VStack(spacing: 0){
@@ -42,6 +76,9 @@ struct ContentView: View {
 //        .ignoresSafeArea()
       
         
+    }
+    func executeDelete() {
+        print("Now deleting...")
     }
 }
 #Preview {

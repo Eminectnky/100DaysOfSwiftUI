@@ -8,87 +8,59 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingAlert = false
+    
+    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US", "Monaco" ].shuffled() //.shuffled() ile diziyi karıştırırız.
+    
+     @State private var correctAnswer = Int.random(in: 0...2)
+    
+    @State private var showingScore = false
+    @State private var scoreTitle = ""
     
     var body: some View {
-        Button("Show alert") {
-            showingAlert = true
-        }
-        .alert("Important message", isPresented: $showingAlert){
-            Button("Delete", role: .destructive) { }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("Please read this.")
-        }
-//        Button{
-//            print("Button was tapped")
-//        } label: {
-//            Label("Edit", systemImage: "pencil")
-//                .padding()
-//                .foregroundStyle(.white)
-//                .background(.red)
-//        }
-//        Image(systemName: "pencil.circle")
-//            .foregroundStyle(.red)
-//            .font(.largeTitle)
-        
-//        Button{
-//            print("Button was tapped")
-//        } label: {
-//            Text("Tap me!")
-//                .padding()
-//                .foregroundStyle(.white)
-//                .background(.red)
-//    }
-//        VStack{
-//            Button("Button 1") { }
-//                .buttonStyle(.bordered)
-//            Button("Button 2", role: .destructive) { }
-//                .buttonStyle(.bordered)
-//            Button("Button 3") { }
-//                .buttonStyle(.borderedProminent)
-//                .tint(.indigo)
-//            Button("Button 4", role: .destructive) { }
-//                .buttonStyle(.borderedProminent)
-//        }
-//        Button("Delete selection", role: .destructive, action: executeDelete)
-        
-        
-//        Text("Your content")
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .foregroundStyle(.white)
-//            .background(.indigo.gradient)
-//
-//        AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
-//
-//        RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
- 
+        ZStack {
             
-//        LinearGradient(stops: [
-//            .init(color: .white, location: 0.45),
-//            .init(color: .black, location: 0.55)
-//        ], startPoint: .top, endPoint: .bottom)
-//   
-        
-//        .ignoresSafeArea()
-    
-//        ZStack{
-//            VStack(spacing: 0){
-//                Color.red
-//                Color.blue
-//            }
-//           Text("Your content")
-//                .foregroundStyle(.secondary)
-//                .padding(50)
-//                .background(.ultraThinMaterial)
-//              
-//        }
-//        .ignoresSafeArea()
-      
-        
+            LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 30){
+                VStack{
+                    Text("Tap the flag of")
+                        .font(.subheadline.weight(.heavy))
+                    Text(countries[correctAnswer])
+                        .font(.largeTitle.weight(.semibold))
+                }
+                .foregroundStyle(.white)
+                
+                
+                ForEach(0..<3) { number in
+                    Button {
+                        flagTapped(number)
+                    }label: {
+                        Image(countries[number])
+                    }
+                }
+            }
+        }
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: askQuestion)
+        }message: {
+            Text("Your score is ???")
+        }
     }
-    func executeDelete() {
-        print("Now deleting...")
+    
+        func flagTapped(_ number: Int) {
+            if number == correctAnswer {
+                scoreTitle = "Correct"
+            } else {
+               scoreTitle = "Wrong"
+            }
+           
+            showingScore = true
+    }
+    
+    func askQuestion() {
+        countries.shuffle()
+        correctAnswer = Int.random(in: 0...2)
     }
 }
 #Preview {

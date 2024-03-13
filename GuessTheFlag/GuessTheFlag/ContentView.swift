@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US", "Monaco" ].shuffled() //.shuffled() ile diziyi karıştırırız.
     
      @State private var correctAnswer = Int.random(in: 0...2)
@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     
     var body: some View {
+        
+        
+    
         ZStack {
             
             LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "flags.jpeg",
+      "filename" : "flags.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "flags 1.jpeg",
+      "filename" : "flags 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "flags 2.jpeg",
+      "filename" : "flags 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

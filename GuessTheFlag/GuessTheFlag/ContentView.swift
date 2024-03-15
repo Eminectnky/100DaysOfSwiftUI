@@ -24,7 +24,6 @@ struct ContentView: View {
             
             LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            
             VStack(spacing: 30){
                 VStack{
                     Text("Tap the flag of")
@@ -40,6 +39,8 @@ struct ContentView: View {
                         flagTapped(number)
                     }label: {
                         Image(countries[number])
+                            .clipShape(.capsule)
+                            .shadow(radius: 5)
                     }
                 }
             }

@@ -23,10 +23,11 @@ struct SplashScreen: View {
                     Spacer()
                     Image("flags")
                         .resizable()
-                        .ignoresSafeArea()
+                        .frame(width: 100, height: 100)
+                        
                     Text("Guess The Flag")
                         .font(Font.custom("Baskerville-Bold", size: 26))
-                        .foregroundColor(.black.opacity(0.80))
+                    Spacer()
                 }
                 .scaleEffect(size)
                 .opacity(opacity)

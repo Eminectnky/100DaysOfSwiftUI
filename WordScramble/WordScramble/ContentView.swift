@@ -20,6 +20,14 @@ struct ContentView: View {
             Text("Static Row")
         }
     }
+    
+    func testBundles() {
+        if let fileURL = Bundle.main.url(forResource: "somefile", withExtension: "txt"){
+            if let fileContents = try? String(contentsOf: fileURL){
+                
+            }
+        }
+    }
         
 }
 

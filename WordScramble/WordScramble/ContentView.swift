@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    //    let people = ["Finn", "Leia", "Luke", "Rey"]
+  
     
     @State private var useWords = [String]()
     @State private var rootWord = ""
@@ -34,6 +34,7 @@ struct ContentView: View {
             }
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
+            .onAppear(perform: startGame)
         }
     }
         func addNewWord() {
@@ -46,36 +47,19 @@ struct ContentView: View {
                 useWords.insert(answer, at: 0)
             }
             newWord = ""
-            
-            //        List{
-            //            Text("Static Row")
-            //
-            //            ForEach(people, id: \.self){
-            //                Text($0)
-            //            }
-            //            Text("Static Row")
-            //        }
-            //    }
-            
-            //    func testBundles() {
-            //        if let fileURL = Bundle.main.url(forResource: "somefile", withExtension: "txt"){
-            //            if let fileContents = try? String(contentsOf: fileURL){
-            //
-            //            }
-            //        }
-            //    }
-            
-            //    func testStrings() {
-            //      let word = "swift"
-            //        let checker = UITextChecker()
-            //
-            //        let range = NSRange(location: 0, length: word.utf16.count)
-            //
-            //        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
-            //
-            //        let allGood = misspelledRange.location == NSNotFound
         }
+    
+    func startGame() {
+        if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
+            if let startWords = try? String(contentsOf: startWordsURL){
+                let allWords = startWords.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "silkworm"
+                return
+            }
+        }
+        fatalError("Could not load start.txt from bundle.")
     }
+}
 
 #Preview {
     ContentView()
